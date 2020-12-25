@@ -18,46 +18,46 @@
                             <th class="px-4 py-2">Action</th>
                         </tr>
                     </thead>
-                    <tbody class="mx-8">
+                    <tbody class="text-center">
                         <tr>
                             <td>1</td>
                             <td>Berita Terbaru</td>
                             <td>Jakarta PSBB</td>
                             <td>
-                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
                             Edit
                             </button>
-                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
                             Edit
                             </button>
                             </td>
                         </tr>
                     </tbody>
-                    <tbody>
+                    <tbody class="text-center">
                         <tr>
                             <td>2</td>
                             <td>Berita Terbaru</td>
                             <td>Jakarta PSBB</td>
                             <td>
-                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
                             Edit
                             </button>
-                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
                             Edit
                             </button>
                             </td>
                         </tr>
                     </tbody>
-                    <tbody>
+                    <tbody class="text-center">
                         <tr>
                             <td>3</td>
                             <td>Berita Terbaru</td>
                             <td>Jakarta PSBB</td>
                             <td>
-                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
                             Edit
                             </button>
-                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
                             Edit
                             </button>
                             </td>

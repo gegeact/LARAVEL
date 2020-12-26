@@ -8,6 +8,7 @@ use App\Models\Post;
 class Posts extends Component
 {
     public $posts;
+    public $postId,$title,$description;
     public $isOpen = 0;
 
     public function render()
@@ -21,5 +22,24 @@ class Posts extends Component
     }
     public function hideModal() {
         $this->isOpen = false;
+    }
+    public function store() {
+        $this->validate(
+            [
+                'title' => 'required'
+                'description' => 'required'
+            ]
+            );
+
+        post::updateOrCreate(['id' => $this->postId], [
+            'title' => $this->title,
+            'description' => $this->description,
+        ]);
+
+        $this->hideModal();
+
+        $this->postId = '';
+        $this->title = '';
+        $this->description = '';
     }
 }

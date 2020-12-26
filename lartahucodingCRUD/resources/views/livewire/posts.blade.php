@@ -9,6 +9,13 @@
                 </div>
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+                <button wire:click="showModal()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-4 rounded mb-2">
+                            
+                            Create
+                            </button>
+                            @if($isOpen)
+                                @include('livewire.create')
+                            @endif
                 <Table class="table-fixed w-full">
                     <thead class="bg-blue-300 text-white">
                         <tr>
@@ -18,11 +25,13 @@
                             <th class="px-4 py-2">Action</th>
                         </tr>
                     </thead>
+
                     <tbody class="text-center">
+                        @foreach($posts as $post)
                         <tr>
-                            <td>1</td>
-                            <td>Berita Terbaru</td>
-                            <td>Jakarta PSBB</td>
+                            <td>{{ $post->id}}</td>
+                            <td>{{ $post->title}}</td>
+                            <td>{{ $post->description}}</td>
                             <td>
                             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
                             Edit
@@ -32,36 +41,7 @@
                             </button>
                             </td>
                         </tr>
-                    </tbody>
-                    <tbody class="text-center">
-                        <tr>
-                            <td>2</td>
-                            <td>Berita Terbaru</td>
-                            <td>Jakarta PSBB</td>
-                            <td>
-                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
-                            Edit
-                            </button>
-                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
-                            Edit
-                            </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                    <tbody class="text-center">
-                        <tr>
-                            <td>3</td>
-                            <td>Berita Terbaru</td>
-                            <td>Jakarta PSBB</td>
-                            <td>
-                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
-                            Edit
-                            </button>
-                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
-                            Edit
-                            </button>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </Table>
 

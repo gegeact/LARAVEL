@@ -18,14 +18,17 @@
             </div>
                 <div>
                     <div class="mb-2">
-                    <label for="title" class="block">Title</label>
-                    <input type="text" name="title" class="shadow appearance-none border rounded w-full py-2 px-3 text-blue-900" placeholder="input post">
+                    <input wire:model="postId" type="hidden" name="title" class="shadow appearance-none border rounded w-full py-2 px-3 text-blue-900" placeholder="input post">
                     </div>
-                </div>
-                <div>
+
                     <div class="mb-2">
-                    <label for="title" class="block">Description</label>
-                    <textarea name="Description" class="shadow appearance-none border rounded w-full py-2 px-3 text-blue-900" placeholder=""></textarea>
+                    <label for="title" class="block">Title</label>
+                    <input wire:model="title" type="text" name="title" class="shadow appearance-none border rounded w-full py-2 px-3 text-blue-900" placeholder="input post">
+                    </div>
+
+                    <div class="mb-2">
+                    <label for="description" class="block">Description</label>
+                    <textarea wire:model="description" name="Description" class="shadow appearance-none border rounded w-full py-2 px-3 text-blue-900" placeholder=""></textarea>
                     </div>
                 </div>
             

@@ -26,8 +26,8 @@ class Posts extends Component
     public function store() {
         $this->validate(
             [
-                'title' => 'required'
-                'description' => 'required'
+                'title' => 'required',
+                'description' => 'required',
             ]
             );
 
@@ -38,8 +38,26 @@ class Posts extends Component
 
         $this->hideModal();
 
+        session()->flash('info', $this->postId ? 'Post Update Successfully' : 'Post Created Successfully' );
+
         $this->postId = '';
         $this->title = '';
         $this->description = '';
     }
+
+    public function edit($id){
+        $post = Post::findorFail($id);
+        $this->postId = $id;
+        $this->title = $post->title;
+        $this->description = $post->description;
+
+        $this->showModal();
+    }
+
+    public function delete($id){
+        post::find($id)->delete();
+    }
+
+    
+    
 }

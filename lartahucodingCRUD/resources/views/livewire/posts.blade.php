@@ -9,13 +9,20 @@
                 </div>
                 <button wire:click="showModal()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-4 rounded mb-1">
                             
-                            Create
-                            </button>
-                            @if($isOpen)
-                                @include('livewire.create')
-                            @endif
+                Create
+                </button>
+                    @if($isOpen)
+                        @include('livewire.create')
+                    @endif
 
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+                    @if(session()->has('info'))
+                    <div class="bg-green-300 text-center text-white mt-3 rounded">
+                    <h1>{{ session('info') }}</h1>
+                    </div>
+
+                    @endif
+
+                <div class="mt-5 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                 
                 <Table class="table-fixed w-full">
                     <thead class="bg-blue-300 text-white">
@@ -30,15 +37,15 @@
                     <tbody class="text-center">
                         @foreach($posts as $post)
                         <tr>
-                            <td>{{ $post->id}}</td>
-                            <td>{{ $post->title}}</td>
-                            <td>{{ $post->description}}</td>
+                            <td>{{ $post->id }}</td>
+                            <td>{{ $post->title }}</td>
+                            <td>{{ $post->description }}</td>
                             <td>
-                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
+                            <button wire:click="edit({{ $post->id}})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
                             Edit
                             </button>
-                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
-                            Edit
+                            <button wire:click="delete({{ $post->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
+                            Delete
                             </button>
                             </td>
                         </tr>

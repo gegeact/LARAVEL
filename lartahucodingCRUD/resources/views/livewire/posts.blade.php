@@ -7,19 +7,27 @@
                         </g>
                     </svg>
                 </div>
+                <div class="flex">
                 <button wire:click="showModal()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-4 rounded mb-1">
                             
                 Create
                 </button>
+                <input wire:model="search" type="text" name="Search" class="shadow appearance-none border-gray-50 rounded w-full py-1 px-4 text-blue-900 mb-1 ml-4" placeholder="Search . . . . .">
+                </div>
                     @if($isOpen)
                         @include('livewire.create')
                     @endif
 
                     @if(session()->has('info'))
-                    <div class="bg-green-300 text-center text-white mt-3 rounded">
+                    <div class="py-2 bg-green-500 text-center text-white mt-3 rounded">
                     <h1>{{ session('info') }}</h1>
                     </div>
+                    @endif
 
+                    @if(session()->has('delete'))
+                    <div class="py-2 bg-red-500 text-center text-white mt-3 rounded">
+                    <h1>{{ session('delete') }}</h1>
+                    </div>
                     @endif
 
                 <div class="mt-5 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
@@ -27,7 +35,7 @@
                 <Table class="table-fixed w-full">
                     <thead class="bg-blue-300 text-white">
                         <tr>
-                            <th class="px-4 py-2">No</th>
+                            <th class="px-4 py-2 w-20">No</th>
                             <th class="px-4 py-2">Title</th>
                             <Th class="px-4 py-2">Description</Th>
                             <th class="px-4 py-2">Action</th>
@@ -37,7 +45,7 @@
                     <tbody class="text-center">
                         @foreach($posts as $post)
                         <tr>
-                            <td>{{ $post->id }}</td>
+                            <td class="px-2 py-2">{{ $post->id }}</td>
                             <td>{{ $post->title }}</td>
                             <td>{{ $post->description }}</td>
                             <td>
@@ -52,8 +60,10 @@
                         @endforeach
                     </tbody>
                 </Table>
-
+                {{$posts->links()}}
                 </div>
+
+                
 
                 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
                     <div class="text-center text-sm text-gray-500 sm:text-left">

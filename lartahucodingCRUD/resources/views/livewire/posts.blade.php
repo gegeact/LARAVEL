@@ -56,9 +56,11 @@
                         @endforeach
                     </tbody>
                 </Table>
+                
+                </div>
+                <div class="m-auto">
                 {{$posts->links()}}
                 </div>
-
                 
 
                 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">

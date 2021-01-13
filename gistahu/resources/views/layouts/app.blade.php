@@ -18,8 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
-    @livewireStyles
+
+
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css' rel='stylesheet' />
+@livewireStyles
 </head>
 <body>
     <div id="app">
@@ -61,8 +63,8 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -79,10 +81,11 @@
 
         <main class="py-4">
             @yield('content')
-            {{isset($slot) ? $slot : null}}
+            {{ isset($slot) ? $slot : null}}
         </main>
     </div>
-
     @livewireScripts
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'></script>
+    @stack('scripts')
 </body>
 </html>

@@ -8,29 +8,36 @@
                 <div class="card-header">{{ __('Blog') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    {{-- form --}}
-                        <form>
+                    
+                    <form method="POST" action="{{ route('blog.store') }}" enctype="multipart/form-data">
+                        @csrf
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Title</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
-                            {{-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control" id="title" name="title" placeholder="Judul Article">
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Description</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <label for="description">Description</label>
+                            <textarea type="text" class="form-control" id="description" name="description" placeholder="Type article here"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlFile1">Example file input</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                            <label for="image">Add Image</label>
+                            <input type="file" name="image" class="form-control-file" id="image">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        <a href="{{ route('blog.index')}}" class="btn btn-danger">Cancel</a>
-                        </form>
+                        <a href="{{ route('blog.index') }}" type="submit" class="btn btn-danger">Cancel</a>
+                    </form>
+                    
+                    @if($errors->any())
+                    <div class="alert alert-danger my-4" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+
+                        @foreach($errors->all() as $error)
+                            {{ $error }}<br/>
+                        @endforeach
+                    </div>
+                @endif
 
                 </div>
             </div>

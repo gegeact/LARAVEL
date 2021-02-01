@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\BlogRequest;
+
 use App\models\blog;
+
+
 class BlogController extends Controller
 {
     /**
@@ -35,9 +39,14 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BlogRequest $request)
     {
-        //
+        $blog = $request->all();
+        $blog['image'] = 'storange/' .$request->file('image')->store(
+            'asset/blog', 'public'
+        );
+        blog::create($blog);
+        return redirect()->route('blog.index');
     }
 
     /**

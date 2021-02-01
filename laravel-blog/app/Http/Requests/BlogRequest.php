@@ -26,8 +26,17 @@ class BlogRequest extends FormRequest
         return [
             'title' => 'required|string',
             'description' => 'required|string',
-            'image' => 'required|image',
-            //
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
+
+        ];
+    }
+
+    public function message() 
+    {
+        return [
+            'title.required' => 'title is required',
+            'description.required' => 'description is required',
+            'image.required' => 'image is required'
         ];
     }
 }

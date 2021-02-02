@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\softDeletes;
 class blog extends Model
 {
     use softDeletes; 
-
-    protected $fillabel = [
+    
+    protected $fillable = 
+    [
         'title','description','image'
     ];
 }

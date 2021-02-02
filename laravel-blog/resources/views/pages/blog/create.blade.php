@@ -5,12 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Blog') }}</div>
+                <div class="card-header">{{ __('Create New Blog') }}</div>
 
                 <div class="card-body">
                     
                     <form method="POST" action="{{ route('blog.store') }}" enctype="multipart/form-data">
+                        
                         @csrf
+
                         <div class="form-group">
                             <label for="title">Title</label>
                             <input type="text" class="form-control" id="title" name="title" placeholder="Judul Article">
@@ -27,6 +29,7 @@
                         <a href="{{ route('blog.index') }}" type="submit" class="btn btn-danger">Cancel</a>
                     </form>
                     
+                    
                     @if($errors->any())
                     <div class="alert alert-danger my-4" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -37,7 +40,7 @@
                             {{ $error }}<br/>
                         @endforeach
                     </div>
-                @endif
+                    @endif
 
                 </div>
             </div>

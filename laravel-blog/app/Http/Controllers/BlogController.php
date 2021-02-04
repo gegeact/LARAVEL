@@ -42,7 +42,7 @@ class BlogController extends Controller
     public function store(BlogRequest $request)
     {
         $blog = $request->all();
-        $blog['image'] = 'storange/' .$request->file('image')->store(
+        $blog['image'] = 'storage/' .$request->file('image')->store(
             'asset/blog', 'public'
         );
         blog::create($blog);

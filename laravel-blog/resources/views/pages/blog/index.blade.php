@@ -38,7 +38,7 @@
 
             <div class="col">
                 <div class="card shadow-sm">
-                    <img src="{{ $blog->image }}" class="bd-placeholder-img card-img-top" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"></img>
+                    <img src="{{ asset($blog->image) }}" class="bd-placeholder-img card-img-top" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"></img>
 
                     <div class="card-body">
                         <p class="card-text">{{ $blog->description }}</p>
